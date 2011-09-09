@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+
+</HEAD>
+<BODY>
+{% include "archive/menu.html" %}
+
+
+
+<TABLE BORDER="1">
+    <TR BGCOLOR="ORANGE">
+        <TD>score</TD>
+        <TD>Winner</TD>
+        <TD>Loser</TD>
+        <TD>Tags</TD>
+        <TD>File</TD>
+        <TD>ID</TD>
+    </TR>
+    {% for match in matchs %}
+
+    <TR>
+        <TD>{{ match.winscore }} / {{ match.losescore }} @ {{ match.matchlength }}</TD>
+        <TD><A HREF="/{{ match.winner.username }}/user">{{ match.winner.username }}</A></TD>
+        <TD><A HREF="/{{ match.loser.username }}/user">{{ match.loser.username }}</A></TD>
+        <TD> {{ match.tags }}
+        </TD>
+        <TD><A HREF={{ match.matfile }}/> {{ match.matfile }} </A></TD>
+        <TD><A HREF="/{{ match.id }}/editmatch"> edit </A></TD>
+    </TR>
+    {% endfor %}
+</table>
+</BODY>
+
+</HTML>
+
+

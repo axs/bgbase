@@ -1,0 +1,9 @@
+{% extends "archive/base.html" %}
+
+{% block body %}
+{% include "archive/menu.html" %}
+
+    {% for user in users %}
+        {% include "archive/user.html" %}
+    {% endfor %}
+{% endblock %}
